@@ -1,0 +1,106 @@
+public class ConversorMenú {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+	     Scanner scanner = new Scanner(System.in);
+	        int opcion;
+
+	        do {
+	            System.out.println("Conversor de bases numéricas");
+	            System.out.println("1. Convertir de binario a decimal");
+	            System.out.println("2. Convertir de decimal a binario");
+	            System.out.println("3. Convertir de hexadecimal a decimal");
+	            System.out.println("4. Convertir de decimal a hexadecimal");
+	            System.out.println("5. Convertir de octal a decimal");
+	            System.out.println("6. Convertir de decimal a octal");
+	            System.out.println("7. Salir");
+	            System.out.print("Ingrese una opción: ");
+	            opcion = scanner.nextInt();
+
+	            switch (opcion) {
+	                case 1:
+	                    System.out.print("Ingrese un número binario: ");
+	                    String binario = scanner.next();
+	                    int decimalBinario = convertirBinarioADecimal(binario);
+	                    System.out.println("El número decimal es: " + decimalBinario);
+	                    break;
+	                case 2:
+	                    System.out.print("Ingrese un número decimal: ");
+	                    int decimal = scanner.nextInt();
+	                    String binarioDecimal = convertirDecimalABinario(decimal);
+	                    System.out.println("El número binario es: " + binarioDecimal);
+	                    break;
+	                case 3:
+	                    System.out.print("Ingrese un número hexadecimal: ");
+	                    String hexadecimal = scanner.next();
+	                    int decimalHexadecimal = convertirHexadecimalADecimal(hexadecimal);
+	                    System.out.println("El número decimal es: " + decimalHexadecimal);
+	                    break;
+	                case 4:
+	                    System.out.print("Ingrese un número decimal: ");
+	                    int decimal2 = scanner.nextInt();
+	                    String hexadecimalDecimal = convertirDecimalAHexadecimal(decimal2);
+	                    System.out.println("El número hexadecimal es: " + hexadecimalDecimal);
+	                    break;
+	                case 5:
+	                    System.out.print("Ingrese un número octal: ");
+	                    String octal = scanner.next();
+	                    int decimalOctal = convertirOctalADecimal(octal);
+	                    System.out.println("El número decimal es: " + decimalOctal);
+	                    break;
+	                case 6:
+	                    System.out.print("Ingrese un número decimal: ");
+	                    int decimal3 = scanner.nextInt();
+	                    String octalDecimal = convertirDecimalAOctal(decimal3);
+	                    System.out.println("El número octal es: " + octalDecimal);
+	                    break;
+	                case 7:
+	                    System.out.println("¡Hasta luego!");
+	                    break;
+	                default:
+	                    System.out.println("Opción inválida. Intente nuevamente.");
+	                    break;
+	            }
+
+	            System.out.println();
+	        } while (opcion != 7);
+	    }
+
+	    // Método para convertir de binario a decimal
+	    public static int convertirBinarioADecimal(String binario) {
+	        return Integer.parseInt(binario, 2);
+	    }
+
+	    // Método para convertir de decimal a binario
+	    public static String convertirDecimalABinario(int decimal) {
+	        return Integer.toBinaryString(decimal);
+	    }
+
+	    // Método para convertir de hexadecimal a decimal
+	    public static int convertirHexadecimalADecimal(String hexadecimal) {
+	        return Integer.parseInt(hexadecimal, 16);
+	    }
+
+	    // Método para convertir de decimal a hexadecimal
+	    public static String convertirDecimalAHexadecimal(int decimal) {
+	        return Integer.toHexString(decimal);
+	    }
+
+	    // Método para convertir de octal a decimal
+	    public static int convertirOctalADecimal(String octal) {
+	        return Integer.parseInt(octal, 8);
+	    }
+
+	    // Método para convertir de decimal a octal
+	    public static String convertirDecimalAOctal(int decimal) {
+	        return Integer.toOctalString(decimal);
+	    }
+	
+
+
+
+
+
+
+
+	}
