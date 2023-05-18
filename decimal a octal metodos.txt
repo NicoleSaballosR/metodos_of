@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+public class ConversorBinarioOctal {
+    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese un número binario: ");
+        String numeroBinario = scanner.nextLine();
+        
+        int numeroOctal = convertirBinarioOctal(numeroBinario);
+        System.out.println("El número octal equivalente es: " + numeroOctal);
+    }
+    
+    public static int convertirBinarioOctal(String numeroBinario) {
+        int decimal = convertirBinarioDecimal(numeroBinario);
+        int octal = convertirDecimalOctal(decimal);
+        return octal;
+    }
+    
+    public static int convertirBinarioDecimal(String numeroBinario) {
+        int decimal = 0;
+        int potencia = 0;
+        
+        for (int i = numeroBinario.length() - 1; i >= 0; i--) {
+            int digito = Character.getNumericValue(numeroBinario.charAt(i));
+            decimal += digito * Math.pow(2, potencia);
+            potencia++;
+        }
+        
+        return decimal;
+    }
+    
+    public static int convertirDecimalOctal(int numeroDecimal) {
+        int octal = 0;
+        int i = 1;
+        
+        while (numeroDecimal != 0) {
+            octal += (numeroDecimal % 8) * i;
+            numeroDecimal /= 8;
+            i *= 10;
+        }
+        
+        return octal;
+    }
+}
